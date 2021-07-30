@@ -12,6 +12,9 @@
 # define HEADER_SM3_H
 
 # include <openssl/opensslconf.h>
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 # ifdef OPENSSL_NO_SM3
 #  error SM3 is disabled.
@@ -35,5 +38,9 @@ int sm3_update(SM3_CTX *c, const void *data, size_t len);
 int sm3_final(unsigned char *md, SM3_CTX *c);
 
 void sm3_block_data_order(SM3_CTX *c, const void *p, size_t num);
+
+#ifdef  __cplusplus
+}
+#endif
 
 #endif
